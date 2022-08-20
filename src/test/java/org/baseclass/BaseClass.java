@@ -31,12 +31,12 @@ public class BaseClass {
 	    public static TakesScreenshot tk;  
 	    public static JavascriptExecutor js;
 		public static Select s;
-	    //BROWSER LAUNCH
+	    //1.BROWSER LAUNCH
 		public static void browserLaunch() {
 		 WebDriverManager.chromiumdriver().setup();
 		 driver=new ChromeDriver();	
 		}
-		//MAXIMIZE THE WINDOW
+		//2.MAXIMIZE THE WINDOW
 		public static void maxWindow() {
 		driver.manage().window().maximize();
 		}
@@ -168,6 +168,16 @@ public class BaseClass {
     //TABLE COUNT
     public static void tableSize(List<WebElement> tab) {
     	System.out.println("total no of table :"+tab.size());
+    }
+    //Display Table Heading Only 
+    public static void displayTableHeading(WebElement webEle) { 
+    List<WebElement> allRows = webEle.findElements(By.tagName("tr")); 
+    WebElement firstRow = allRows.get(0); 
+    List<WebElement> heading = firstRow.findElements(By.tagName("th")); 
+    for (int j = 0; j < heading.size(); j++) { 
+    WebElement headData = heading.get(j); 
+    System.out.println(headData.getText()); 
+    } 
     }
     
     // DISPLAYING PARTICULAR DATA
@@ -309,6 +319,10 @@ public class BaseClass {
 			pollingEvery(Duration.ofSeconds(pollingSec)).ignoring(Throwable.class);
 	f.until(ExpectedConditions.alertIsPresent());
 	} 
+	private void priya() {
+		System.out.println("priya");
+
+	}
 }
   
     
