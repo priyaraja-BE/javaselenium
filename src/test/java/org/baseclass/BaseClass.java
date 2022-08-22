@@ -321,7 +321,7 @@ public class BaseClass {
 	} 
 	private void priya() {
 		System.out.println("priya");
-
+		System.out.println("Test1");
 	}
 }
   
